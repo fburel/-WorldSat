@@ -5,6 +5,10 @@ public class Rayonnant extends Heater {
 
     private double setPoint;
 
+    public Rayonnant() {
+       
+    }
+
     public double getSetPoint() {
         return setPoint;
     }
@@ -15,6 +19,7 @@ public class Rayonnant extends Heater {
 
     @Override
     public String toString() {
+
         String precedent = super.toString();
         return precedent + " ("  + setPoint + ")";
     }

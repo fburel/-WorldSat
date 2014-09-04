@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.util.Random;
 
 /**
@@ -11,9 +12,15 @@ public class Heater
 
 
     private String serial;
-    private int power = POWER_DEFAULT; // en Watt
+    private int power; // en Watt
     private String name;
-    private double runningTime = 3600 * 3; // en secondes
+    private double runningTime; // en secondes
+
+
+
+    public Heater(String serial) {
+        this.serial = serial;
+    }
 
     // Accessors (getters and setters)
     public int getPower()
@@ -59,6 +66,11 @@ public class Heater
 
     @Override
     public String toString() {
-        return name;
+        return "Heater{" +
+                "serial='" + serial + '\'' +
+                ", power=" + power +
+                ", name='" + name + '\'' +
+                ", runningTime=" + runningTime +
+                '}';
     }
 }

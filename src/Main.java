@@ -6,54 +6,72 @@ import java.util.ArrayList;
 public class Main extends ConsoleProgram
 {
 
-
-
+    @Override
     public void run()
     {
-        Zone zone = new Zone();
 
-        while (true)
-        {
-            println();
-            println();
+        Heater h = new Heater();
 
 
-            println("**************************");
-            int choix = afficherMenuPrinicpal();
+        println(h.toString());
 
 
+        Heater h2 = new Heater("super");
 
-
-
-            switch (choix)
-            {
-                case 1  :
-                    afficherListeDesRadiateurs(zone);
-                    break;
-                case 2 :
-                    ajouterUnRadiateur(zone);
-                    break;
-                case 3 :
-                    renommerLaZone(zone);
-                    break;
-                case 0:
-                default:
-                    return;
-            }
-        }
-
+        println(h2.toString());
     }
 
-    private void renommerLaZone(Zone zone)
+
+
+
+    /*
+        public void run()
+        {
+            Zone zone = Zone.getInstance();
+
+            while (true)
+            {
+                println();
+                println();
+
+
+                println("**************************");
+                int choix = afficherMenuPrinicpal();
+
+
+
+
+
+                switch (choix)
+                {
+                    case 1  :
+                        afficherListeDesRadiateurs();
+                        break;
+                    case 2 :
+                        ajouterUnRadiateur();
+                        break;
+                    case 3 :
+                        renommerLaZone();
+                        break;
+                    case 0:
+                    default:
+                        return;
+                }
+            }
+
+        }
+
+    */
+    private void renommerLaZone()
     {
         println();
         println();
 
         String name = readLine("nouveau nom de la zone");
-        zone.setName(name);
+        Zone.getInstance().setName(name);
     }
 
-    private void ajouterUnRadiateur(Zone zone)
+    private void ajouterUnRadiateur()
     {
         println();
         println();
@@ -78,7 +96,7 @@ public class Main extends ConsoleProgram
         String name = readLine("nom du radiateur?");
         h.setName(name);
 
-        zone.getHeaters().add(h);
+        Zone.getInstance().getHeaters().add(h);
 
         // savoir si un objet est instance d'une classe
         if(h instanceof Rayonnant)
@@ -89,13 +107,13 @@ public class Main extends ConsoleProgram
 
     }
 
-    private void afficherListeDesRadiateurs(Zone zone) {
+    private void afficherListeDesRadiateurs() {
 
         println();
         println();
 
 
-        for (Heater h : zone.getHeaters())
+        for (Heater h : Zone.getInstance().getHeaters())
         {
             println(h.toString());
         }
