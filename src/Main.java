@@ -6,25 +6,7 @@ import java.util.ArrayList;
 public class Main extends ConsoleProgram
 {
 
-    @Override
-    public void run()
-    {
 
-        Heater h = new Heater();
-
-
-        println(h.toString());
-
-
-        Heater h2 = new Heater("super");
-
-        println(h2.toString());
-    }
-
-
-
-
-    /*
         public void run()
         {
             Zone zone = Zone.getInstance();
@@ -61,7 +43,7 @@ public class Main extends ConsoleProgram
 
         }
 
-    */
+    
     private void renommerLaZone()
     {
         println();
