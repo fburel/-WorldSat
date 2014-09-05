@@ -1,15 +1,13 @@
 import acm.program.ConsoleProgram;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-
 public class Main extends ConsoleProgram
 {
 
 
         public void run()
         {
-            Zone zone = Zone.getInstance();
+
+            Zone z = Zone.getInstance();
 
             while (true)
             {
@@ -19,6 +17,8 @@ public class Main extends ConsoleProgram
 
                 println("**************************");
                 int choix = afficherMenuPrinicpal();
+
+
 
 
 
@@ -43,7 +43,7 @@ public class Main extends ConsoleProgram
 
         }
 
-    
+
     private void renommerLaZone()
     {
         println();
@@ -78,14 +78,16 @@ public class Main extends ConsoleProgram
         String name = readLine("nom du radiateur?");
         h.setName(name);
 
-        Zone.getInstance().getHeaters().add(h);
 
-        // savoir si un objet est instance d'une classe
+
+
+        Zone.getInstance().add(h);
+
         if(h instanceof Rayonnant)
         {
-            Rayonnant r = (Rayonnant) h;
-            r.setSetPoint(35);
+            ((Rayonnant)h).setSetPoint(35);
         }
+
 
     }
 

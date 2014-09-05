@@ -4,13 +4,14 @@ import java.util.Random;
 /**
  * Created by fl0 on 01/09/2014.
  */
-public class Heater
+public abstract class Heater
 {
 
     // Declaration
     private static final int POWER_DEFAULT = 500;
 
 
+    private DeviceType type;
     private String serial;
     private int power; // en Watt
     private String name;
@@ -18,9 +19,8 @@ public class Heater
 
 
 
-    public Heater(String serial) {
-        this.serial = serial;
-    }
+
+
 
     // Accessors (getters and setters)
     public int getPower()
@@ -34,10 +34,7 @@ public class Heater
         return runningTime;
     }
 
-    public double getConsumption() // en Joule
-    {
-        return power * runningTime;
-    }
+    public abstract double getConsumption();
 
     public void setName(String name)
     {
@@ -66,11 +63,8 @@ public class Heater
 
     @Override
     public String toString() {
-        return "Heater{" +
-                "serial='" + serial + '\'' +
-                ", power=" + power +
-                ", name='" + name + '\'' +
-                ", runningTime=" + runningTime +
-                '}';
+        return name;
     }
+
+
 }

@@ -1,7 +1,9 @@
+import java.io.Serializable;
+
 /**
  * Created by fl0 on 04/09/2014.
  */
-public class SecheServiette extends Heater {
+public class SecheServiette extends Heater implements Printable, Serializable{
 
 
 
@@ -17,8 +19,18 @@ public class SecheServiette extends Heater {
     }
 
     @Override
+    public double getConsumption() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
+        
         return "seche-serviette de" + puissanceSouflerie + "W";
     }
 
+    @Override
+    public String toJSON() {
+        return null;
+    }
 }

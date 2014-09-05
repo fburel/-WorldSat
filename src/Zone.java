@@ -6,7 +6,13 @@ import java.util.ArrayList;
  */
 public class Zone
 {
+
     /* SINGLETON */
+
+    private Zone() {
+
+    }
+
 
     private static Zone instance;
 
@@ -19,9 +25,7 @@ public class Zone
         return instance;
     }
 
-    private Zone() {
-        name = "toto";
-    }
+
 
     private String name;
 
@@ -40,8 +44,15 @@ public class Zone
 
     }
 
-    public ArrayList<Heater> getHeaters() {
-        return heaters;
-    }
+    public void add(Heater h) {
+        if(heaters.size() < 32)
+        {
+            heaters.add(h);
+        }
+        else
+        {
+            /* Error */
+        }
 
+    }
 }
